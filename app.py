@@ -12,5 +12,12 @@ def index():
         return render_template('results.html', hoten=hoten, truong=truong)
 
 
+@app.route('/abc')
+def xinchao():
+    btc = True
+    danhsach = ["Khoi", "Bao", "Hieu", "Huy"]
+    return render_template('index.html', name='Web Workshop', btc=btc, danhsach=danhsach)
+
+
 if __name__ == '__main__':
     app.run()
