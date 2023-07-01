@@ -1,0 +1,16 @@
+# Create environment
+
+python -m venv .venv
+
+# Activate environment
+
+Windows: .\.venv\Scripts\activate
+
+Linux: source ./venv/bin/activate
+
+# Install flask
+
+pip install flask
+
+# --debug: Cập nhật lại ứng dụng mỗi khi có thay đổi
+flask --debug run
