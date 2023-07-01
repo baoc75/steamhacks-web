@@ -1,10 +1,15 @@
-from flask import Flask, render_template
+from flask import Flask, request, render_template
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html')
+    if request.method == 'GET':
+        return render_template('form.html')
+    else:
+        hoten = request.form['hoten']
+        truong = request.form['truong']
+        return render_template('results.html', hoten=hoten, truong=truong)
 
 
 if __name__ == '__main__':
