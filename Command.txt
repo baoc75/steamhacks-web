@@ -6,6 +6,9 @@ python -m venv .venv
 
 Windows: .\.venv\Scripts\activate
 
+Nếu gặp lỗi về "Execution Policies", chạy: Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
+sẽ cho phép máy có quyền chạy lệnh
+
 Linux: source ./venv/bin/activate
 
 # Install flask
