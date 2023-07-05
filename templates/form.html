@@ -3,22 +3,30 @@
     <title>Đăng ký</title>
   </head>
   <body>
-      <h1 class="title">Đăng ký tham gia</h1>
+      <h1 class="title">STEAM GPT</h1>
       <div>
-        <p>Hạn đăng ký: 02/07/2023</p>
+        <p>Chào mừng bạn đến với Bot thông minh nhất hệ mặt trời</p>
       </div>
-
-      <form action="/" method="POST">
+      <p>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+          Lỗi: 
+          <ul>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+          </ul>
+          {% endif %}
+        {% endwith %}
+      </p>
+      <form action="/" method="POST" enctype="multipart/form-data">
         <input
           type="text"
-          name="hoten"
-          placeholder="Nhập tên của bạn"
+          name="question"
+          placeholder="Nhập câu hỏi bạn muốn hỏi"
+          required
         />
-        <input
-          type="text"
-          name="truong"
-          placeholder="Nhập trường học"
-        />
+        <input type="file" name="file" autocomplete="off" required>
         <input type="submit" value="Gửi" />
       </form>
   </body>
