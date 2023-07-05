@@ -1,33 +1,45 @@
 <html>
   <head>
     <title>STEAM GPT</title>
+    <style>
+      .title {
+        font-size: 40px;
+        color: blue;
+        font-family: "Time News Roman";
+      }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   </head>
   <body>
-      <h1 class="title">STEAM GPT</h1>
+    <div class="container">
+      <h1 class="text-center title">STEAM GPT</h1>
       <div>
-        <p>Chào mừng bạn đến với Bot thông minh nhất hệ mặt trời</p>
+        <p class="text-center mt-4">Chào mừng bạn đến với Bot thông minh nhất hệ mặt trời</p>
       </div>
-      <p>
-        {% with messages = get_flashed_messages() %}
-          {% if messages %}
-          Lỗi: 
-          <ul>
-          {% for message in messages %}
-            <li>{{ message }}</li>
-          {% endfor %}
-          </ul>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <div class="alert alert-danger mt-4" role="alert">
+            Lỗi: 
+            <ul>
+              {% for message in messages %}
+                <li>{{ message }}</li>
+              {% endfor %}
+            </ul>
+          </div>
           {% endif %}
-        {% endwith %}
-      </p>
+      {% endwith %}
       <form action="/" method="POST" enctype="multipart/form-data">
         <input
+          class="form-control mt-4"
           type="text"
           name="question"
           placeholder="Nhập câu hỏi bạn muốn hỏi"
-          required
+          required  
         />
-        <input type="file" name="file" autocomplete="off" required>
-        <input type="submit" value="Gửi" />
+        <input class="form-control mt-4" type="file" name="file" autocomplete="off" required>
+        <input type="submit" value="Gửi" class="btn btn-primary mt-4"/>
       </form>
+    </div>
   </body>
 </html>
