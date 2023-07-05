@@ -25,8 +25,8 @@ def index():
     if request.method == 'GET':
         return render_template('form.html')
     else:
-        hoten = request.form['hoten']
-        truong = request.form['truong']
+        question = request.form['question']
+
         # Nếu trường thông tin gửi lên không có trường thông tin nào có tên là file
         if 'file' not in request.files:
             flash('Không có ảnh được gửi lên')
@@ -40,7 +40,11 @@ def index():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return render_template('results.html', hoten=hoten, truong=truong, filename=filename)
+
+            # Xử lý phân tích hình ảnh tại đây và cho kết quả
+            result = "Đây là con mèo"
+
+            return render_template('results.html', question=question, filename=filename, result=result)
         # Nếu không phải là file có định dạng cho phép
         else:
             flash('Định dạng cho phép là: png, jpg, jpeg, gif')
