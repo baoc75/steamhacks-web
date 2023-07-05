@@ -2,6 +2,14 @@
     <head>
     </head>
     <body>
-        <h1>{{ hoten }} - {{ truong }}</h1>
+        <h1>Bạn đã hỏi: {{ question }}</h1>
+        {% if filename %}
+            <div>
+                <img src="{{ url_for('display_image', filename=filename) }}">
+            </div>
+        {% endif %}
+        <p>Kết quả từ Bot:<br/> 
+            {{ result }}
+        </p>
     </body>
 </html>
