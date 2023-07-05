@@ -1,10 +1,12 @@
-from flask import Flask, render_template
+from flask import Flask, request, render_template
 app = Flask(__name__)
 
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    btc = True
+    danhsach = ["Khoi", "Bao", "Hieu", "Huy"]
+    return render_template('index.html', name='Web Workshop', btc=btc, danhsach=danhsach)
 
 
 if __name__ == '__main__':
